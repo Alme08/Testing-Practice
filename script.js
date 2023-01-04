@@ -66,6 +66,29 @@ const caesarCipher = (string, key) => {
   return stringCipher;
 };
 
+const analyzeArray = (array) => {
+  const min = array.reduce((prev, cur) => {
+    if (prev > cur) {
+      return cur;
+    }
+    return prev;
+  });
+  const max = array.reduce((prev, cur) => {
+    if (prev < cur) {
+      return cur;
+    }
+    return prev;
+  });
+
+  const average = array.reduce((prev, cur) => prev + cur, 0) / array.length;
+  return {
+    average,
+    min,
+    max,
+    length: array.length,
+  };
+};
+
 export {
-  capitalize, reverseString, calculator, caesarCipher,
+  capitalize, reverseString, calculator, caesarCipher, analyzeArray,
 };
